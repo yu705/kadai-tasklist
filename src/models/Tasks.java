@@ -10,12 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
 @Entity
 @NamedQueries({
-    @NamedQuery(
-        name = "getAllTasks",
-        query = "SELECT t FROM Tasks AS t ORDER BY t.id DESC"
-    )
+        @NamedQuery(name = "getAllTasks", query = "SELECT t FROM Tasks AS t ORDER BY t.id DESC")
 })
 @Table(name = "tasks")
 public class Tasks {
@@ -24,11 +22,8 @@ public class Tasks {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "title", length = 255, nullable = false)
-    private String title;
-
-    @Column(name = "content", length = 255, nullable = false)
-    private String content;
+    @Column(name = "task", length = 255, nullable = false)
+    private String task;
 
     @Column(name = "created_at", nullable = false)
     private Timestamp created_at;
@@ -42,22 +37,6 @@ public class Tasks {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 
     public Timestamp getCreated_at() {
@@ -75,4 +54,13 @@ public class Tasks {
     public void setUpdated_at(Timestamp updated_at) {
         this.updated_at = updated_at;
     }
+
+    public String getTask() {
+        return task;
+    }
+
+    public void setTask(String task) {
+        this.task = task;
+    }
+
 }

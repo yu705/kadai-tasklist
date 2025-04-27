@@ -38,11 +38,9 @@ public class CreateServlet extends HttpServlet {
 
             Tasks m = new Tasks();
 
-            String title = request.getParameter("title");
-            m.setTitle(title);
+            String task = request.getParameter("task");
+            m.setTask(task);
 
-            String content = request.getParameter("content");
-            m.setContent(content);
 
             Timestamp currentTime = new Timestamp(System.currentTimeMillis());
             m.setCreated_at(currentTime);
